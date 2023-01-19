@@ -89,7 +89,7 @@ def add_token_positions(encodings, answers):
 add_token_positions(train, dataset["answers"])
 
 
-class SquadDataset(torch.utils.data.Dataset):
+class Dataset(torch.utils.data.Dataset):
     def __init__(self, encodings):
         self.encodings = encodings
 
@@ -100,7 +100,7 @@ class SquadDataset(torch.utils.data.Dataset):
         return len(self.encodings.input_ids)
 
 
-train_dataset = SquadDataset(train)
+train_dataset = Dataset(train)
 loader = torch.utils.data.DataLoader(train_dataset, batch_size=2, shuffle=True)
 
 
